@@ -1,0 +1,102 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "Brasília - DF",
+            "initials": "BSB",
+            "paths": [
+                {
+                    "id": 1,
+                    "from": "Brasília - DF",
+                    "to": "Rio de Janeiro - RJ",
+                    "duration": 720,
+                    "price": 187.0
+                },
+                {
+                    "id": 2,
+                    "from": "Brasília - DF",
+                    "to": "São Paulo - SP",
+                    "duration": 640,
+                    "price": 154.5
+                },
+                {
+                    "id": 3,
+                    "from": "Brasília - DF",
+                    "to": "Belo Horizonte - MG",
+                    "duration": 600,
+                    "price": 205.9
+                },
+                {
+                    "id": 4,
+                    "from": "Brasília - DF",
+                    "to": "Recife - PE",
+                    "duration": 1200,
+                    "price": 307.2
+                },
+                {
+                    "id": 5,
+                    "from": "Brasília - DF",
+                    "to": "Curitiba",
+                    "duration": 1500,
+                    "price": 576.0
+                },
+                {
+                    "id": 6,
+                    "from": "Brasília - DF",
+                    "to": "Goiânia - GO",
+                    "duration": 240,
+                    "price": 120.25
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Rio de Janeiro - RJ",
+            "initials": "RJ",
+            "paths": [
+                {
+                    "id": 1,
+                    "from": "Rio de Janeiro - RJ",
+                    "to": "Brasília - RJ",
+                    "duration": 720,
+                    "price": 220.0
+                },
+                {
+                    "id": 2,
+                    "from": "Rio de Janeiro - RJ",
+                    "to": "São Paulo - SP",
+                    "duration": 400,
+                    "price": 180
+                },
+                {
+                    "id": 3,
+                    "from": "Rio de Janeiro - RJ",
+                    "to": "Belo Horizonte - MG",
+                    "duration": 600,
+                    "price": 205.9
+                },
+                {
+                    "id": 4,
+                    "from": "Rio de Janeiro - RJ",
+                    "to": "Recife - PE",
+                    "duration": 1200,
+                    "price": 307.2
+                },
+                {
+                    "id": 5,
+                    "from": "Rio de Janeiro - RJ",
+                    "to": "Curitiba",
+                    "duration": 1500,
+                    "price": 576.0
+                },
+                {
+                    "id": 6,
+                    "from": "Rio de Janeiro - RJ",
+                    "to": "Rio de Janeiro - RJ",
+                    "duration": 240,
+                    "price": 120.25
+                }
+            ]
+        }
+    ]
+}
