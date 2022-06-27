@@ -10,7 +10,7 @@ class HomeAppBar extends StatelessWidget {
     return Container(
       height: size.height * 0.35,
       decoration: BoxDecoration(
-        color: Colors.grey.withOpacity(0.1),
+        color: Color(0XFF2F46F5).withOpacity(0.75),
         borderRadius: const BorderRadius.horizontal(
           left: Radius.circular(25),
           right: Radius.circular(25),
@@ -26,8 +26,24 @@ class HomeAppBar extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
-                Text("Olá, viajante!"),
-                Text("Verifique sua viagem!")
+                Text.rich(
+                  TextSpan(
+                    text: "Olá, ",
+                    style: TextStyle(fontSize: 22, color: Colors.white),
+                    children: [
+                      TextSpan(
+                        text: "Viajante!",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Text(
+                  "Verifique seu trajeto!",
+                  style: TextStyle(color: Colors.white),
+                )
               ],
             ),
             ClipRRect(
