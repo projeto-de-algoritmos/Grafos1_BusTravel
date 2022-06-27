@@ -5,6 +5,7 @@ import 'package:grafos1_bus/common.dart';
 import 'package:grafos1_bus/views/home/widgets/home_app_bar.dart';
 import 'package:grafos1_bus/views/home/widgets/home_info_card.dart';
 import 'package:grafos1_bus/views/home/widgets/home_search_city.dart';
+import 'package:grafos1_bus/model/path.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -15,6 +16,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   List<String> suggestions = [];
+  ValueNotifier test = ValueNotifier([]);
 
   @override
   Widget build(BuildContext context) {
@@ -32,23 +34,34 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-            HomeInfoCard(
-              title: "Sua viagem mais rápida:",
-              city1: "RJ",
-              city1Name: "Rio de Janeiro",
-              city2: "SSA",
-              city2Name: "Salvador",
-              info: "Tempo total: 12 horas",
-              path: Global.shortestPath,
+            ValueListenableBuilder<List<Path>>(
+              valueListenable: Global.shortestPath,
+              builder: (BuildContext context, List<Path> path, Widget? child) {
+                return HomeInfoCard(
+                  title: "Sua viagem mais rápida:",
+                  city1: Global.travelResult.fromSymbol,
+                  city1Name: Global.travelResult.from,
+                  city2: Global.travelResult.toSymbol,
+                  city2Name: Global.travelResult.to,
+                  info:
+                      "Tempo total: ${Global.travelResult.shortestTravel} horas",
+                  path: Global.shortestPath,
+                );
+              },
             ),
-            HomeInfoCard(
-              title: "Sua viagem mais barata:",
-              city1: "RJ",
-              city1Name: "Rio de Janeiro",
-              city2: "SSA",
-              city2Name: "Salvador",
-              info: "Preço: R\$ 900",
-              path: Global.cheapestPath,
+            ValueListenableBuilder<List<Path>>(
+              valueListenable: Global.cheapestPath,
+              builder: (BuildContext context, List<Path> path, Widget? child) {
+                return HomeInfoCard(
+                  title: "Sua viagem mais barata:",
+                  city1: Global.travelResult.fromSymbol,
+                  city1Name: Global.travelResult.from,
+                  city2: Global.travelResult.toSymbol,
+                  city2Name: Global.travelResult.to,
+                  info: "Preço: R\$ ${Global.travelResult.cheapestTravel}",
+                  path: Global.cheapestPath,
+                );
+              },
             ),
           ],
         ),

@@ -19,9 +19,15 @@ class Path {
       required this.price});
 
   factory Path.fromJson(Map<String, dynamic> json) => Path(
-      id: json["id"],
-      from: json["from"],
-      to: json["to"],
-      duration: json["duration"],
-      price: json["price"]);
+        id: json["id"],
+        from: json["from"],
+        to: json["to"],
+        duration: json["duration"],
+        price: json["price"],
+      );
+
+  @override
+  String toString() {
+    return "$from / $to";
+  }
 }

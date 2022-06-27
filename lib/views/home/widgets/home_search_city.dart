@@ -1,6 +1,9 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:grafos1_bus/common.dart';
+import 'package:grafos1_bus/controller/home_controller.dart';
+import 'package:grafos1_bus/model/path.dart';
 import 'package:grafos1_bus/views/home/widgets/home_suggestion_field.dart';
 
 class HomeSearchCity extends StatefulWidget {
@@ -13,6 +16,7 @@ class HomeSearchCity extends StatefulWidget {
 }
 
 class _HomeSearchCityState extends State<HomeSearchCity> {
+  HomeController controller = HomeController();
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -46,6 +50,7 @@ class _HomeSearchCityState extends State<HomeSearchCity> {
             Align(
                 child: HomeSuggestField(
                   suggestions: widget.suggestions,
+                  controller: controller.originController,
                 ),
                 alignment: Alignment.center),
             Text(
@@ -55,10 +60,21 @@ class _HomeSearchCityState extends State<HomeSearchCity> {
             Align(
                 child: HomeSuggestField(
                   suggestions: widget.suggestions,
+                  controller: controller.destinationController,
                 ),
                 alignment: Alignment.center),
             MaterialButton(
-              onPressed: () {},
+              onPressed: () {
+                Global.shortestPath.value = Global.grafo.bellmanFord(
+                    controller.originController.text,
+                    controller.destinationController.text,
+                    true);
+                Global.cheapestPath.value = Global.grafo.bellmanFord(
+                    controller.originController.text,
+                    controller.destinationController.text,
+                    false);
+                super.setState(() {});
+              },
               minWidth: size.width * 0.8,
               color: Color(0XFF2F46F5).withOpacity(0.75),
               child: Text(

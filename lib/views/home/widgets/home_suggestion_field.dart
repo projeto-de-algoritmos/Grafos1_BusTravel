@@ -5,17 +5,18 @@ import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:grafos1_bus/service/home_service.dart';
 
 class HomeSuggestField extends StatefulWidget {
-  const HomeSuggestField({Key? key, required this.suggestions})
+  const HomeSuggestField(
+      {Key? key, required this.suggestions, required this.controller})
       : super(key: key);
 
   final List<String> suggestions;
+  final TextEditingController controller;
 
   @override
   State<HomeSuggestField> createState() => _HomeSuggestFieldState();
 }
 
 class _HomeSuggestFieldState extends State<HomeSuggestField> {
-  final _controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -42,7 +43,7 @@ class _HomeSuggestFieldState extends State<HomeSuggestField> {
             hintStyle: TextStyle(color: Colors.grey.withOpacity(0.4)),
             border: InputBorder.none,
           ),
-          controller: _controller,
+          controller: widget.controller,
         ),
         noItemsFoundBuilder: (context) => SizedBox(
           height: 60,
@@ -54,7 +55,7 @@ class _HomeSuggestFieldState extends State<HomeSuggestField> {
           ),
         ),
         onSuggestionSelected: (value) {
-          _controller.text = value == null ? "" : value.toString();
+          widget.controller.text = value == null ? "" : value.toString();
         },
         itemBuilder: (context, suggestion) {
           return ListTile(

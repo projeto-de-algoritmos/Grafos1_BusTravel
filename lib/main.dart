@@ -6,7 +6,7 @@ import 'package:grafos1_bus/views/home/home_screen.dart';
 
 void main() async {
   await HomeService.getData();
-  Grafo.buildGraph();
+  Global.grafo.buildGraph();
   runApp(const MyApp());
 }
 
