@@ -1,6 +1,9 @@
+import 'dart:collection';
+
 import 'package:grafos1_bus/common.dart';
 import 'package:grafos1_bus/model/city.dart';
 import 'package:grafos1_bus/model/path.dart';
+import 'package:grafos1_bus/model/result.dart';
 
 class Grafo {
   Map grafo = {};
@@ -52,8 +55,6 @@ class Grafo {
     distance[source] = 0.0;
     trajetos[source] = [];
 
-    int counter = grafo.length - 1;
-
     bool shouldUpdate(String from, String to, var value) {
       if (!distance.containsKey(from)) return false;
       double pesoFrom = distance[from]!;
@@ -74,8 +75,27 @@ class Grafo {
         trajetos[to]!.add(edge);
       }
     }
-    counter--;
+
+    createResultObject(source, destination, isDuration, distance);
 
     return trajetos[destination]!;
+  }
+
+  void createResultObject(String source, String destination, bool isDuration,
+      Map<String, double> distance) {
+    if (isDuration) {
+      var sourceRes = source.split("-");
+      var destinationRes = destination.split("-");
+      Global.travelResult = TravelResult(
+        shortestTravel: distance[destination]!.toInt(),
+        from: sourceRes[0].trim(),
+        fromSymbol: sourceRes[1].trim(),
+        to: destinationRes[0].trim(),
+        toSymbol: destinationRes[1].trim(),
+        cheapestTravel: null,
+      );
+    } else {
+      Global.travelResult?.cheapestTravel = distance[destination];
+    }
   }
 }
