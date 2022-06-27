@@ -6,8 +6,8 @@ Path userFromJson(String str) => Path.fromJson(json.decode(str));
 
 class Path {
   int id;
-  City from;
-  City to;
+  String from;
+  String to;
   int duration;
   double price;
 

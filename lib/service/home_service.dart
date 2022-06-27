@@ -3,13 +3,17 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:grafos1_bus/common.dart';
+import 'package:grafos1_bus/model/city.dart';
+import 'package:grafos1_bus/model/path.dart';
 
 class HomeService {
-  static void getData() async {
+  static Future<dynamic> getData() async {
     WidgetsFlutterBinding.ensureInitialized();
     String cryptoData = await rootBundle.loadString("data.json");
 
     Global.data = json.decode(cryptoData);
+
+    return Global.data;
   }
 
   static List<String> buildSuggestions(String query) {

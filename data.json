@@ -55,46 +55,53 @@
             "initials": "RJ",
             "paths": [
                 {
-                    "id": 1,
+                    "id": 7,
                     "from": "Rio de Janeiro - RJ",
                     "to": "Brasília - RJ",
                     "duration": 720,
                     "price": 220.0
                 },
                 {
-                    "id": 2,
+                    "id": 8,
                     "from": "Rio de Janeiro - RJ",
                     "to": "São Paulo - SP",
                     "duration": 400,
-                    "price": 180
+                    "price": 180.0
                 },
                 {
-                    "id": 3,
+                    "id": 9,
                     "from": "Rio de Janeiro - RJ",
                     "to": "Belo Horizonte - MG",
                     "duration": 600,
                     "price": 205.9
                 },
                 {
-                    "id": 4,
+                    "id": 10,
                     "from": "Rio de Janeiro - RJ",
                     "to": "Recife - PE",
                     "duration": 1200,
                     "price": 307.2
                 },
                 {
-                    "id": 5,
+                    "id": 11,
                     "from": "Rio de Janeiro - RJ",
-                    "to": "Curitiba",
+                    "to": "Curitiba - PR",
                     "duration": 1500,
                     "price": 576.0
                 },
                 {
-                    "id": 6,
+                    "id": 12,
                     "from": "Rio de Janeiro - RJ",
-                    "to": "Rio de Janeiro - RJ",
-                    "duration": 240,
-                    "price": 120.25
+                    "to": "Florianópolis - SC",
+                    "duration": 1540,
+                    "price": 780.2
+                },
+                {
+                    "id": 13,
+                    "from": "Rio de Janeiro - RJ",
+                    "to": "Cuiabá - MT",
+                    "duration": 800,
+                    "price": 250.0
                 }
             ]
         }

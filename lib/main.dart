@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:grafos1_bus/common.dart';
+import 'package:grafos1_bus/controller/grafo.dart';
 import 'package:grafos1_bus/service/home_service.dart';
 import 'package:grafos1_bus/views/home/home_screen.dart';
 
-void main() {
-  HomeService.getData();
+void main() async {
+  await HomeService.getData();
+  Grafo.buildGraph();
   runApp(const MyApp());
 }
 
