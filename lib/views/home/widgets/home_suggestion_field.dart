@@ -1,8 +1,14 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
+import 'package:grafos1_bus/service/home_service.dart';
 
 class HomeSuggestField extends StatefulWidget {
-  const HomeSuggestField({Key? key}) : super(key: key);
+  const HomeSuggestField({Key? key, required this.suggestions})
+      : super(key: key);
+
+  final List<String> suggestions;
 
   @override
   State<HomeSuggestField> createState() => _HomeSuggestFieldState();
@@ -27,7 +33,7 @@ class _HomeSuggestFieldState extends State<HomeSuggestField> {
           if (value != null) {}
         },
         suggestionsCallback: (value) {
-          return [];
+          return HomeService.buildSuggestions(value);
         },
         textFieldConfiguration: TextFieldConfiguration(
           decoration: InputDecoration(
@@ -44,9 +50,7 @@ class _HomeSuggestFieldState extends State<HomeSuggestField> {
             ),
           ),
         ),
-        onSuggestionSelected: (value) {
-          setState(() {});
-        },
+        onSuggestionSelected: (value) {},
         itemBuilder: (context, suggestion) {
           return ListTile(
             title: Text(suggestion.toString()),

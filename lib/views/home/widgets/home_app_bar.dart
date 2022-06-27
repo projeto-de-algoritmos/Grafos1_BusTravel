@@ -30,9 +30,13 @@ class HomeAppBar extends StatelessWidget {
                 Text("Verifique sua viagem!")
               ],
             ),
-            CircleAvatar(
-              backgroundColor: Colors.orange,
-            )
+            ClipRRect(
+                borderRadius: BorderRadius.circular(25),
+                child: Image.asset(
+                  "images/profile.jpeg",
+                  width: 40,
+                  height: 40,
+                )),
           ],
         ),
       )),

@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:grafos1_bus/views/home/widgets/home_suggestion_field.dart';
 
 class HomeSearchCity extends StatefulWidget {
-  const HomeSearchCity({Key? key}) : super(key: key);
+  const HomeSearchCity({Key? key, required this.suggestions}) : super(key: key);
+
+  final List<String> suggestions;
 
   @override
   State<HomeSearchCity> createState() => _HomeSearchCityState();
@@ -35,12 +37,20 @@ class _HomeSearchCityState extends State<HomeSearchCity> {
               "Origem",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w800),
             ),
-            Align(child: HomeSuggestField(), alignment: Alignment.center),
+            Align(
+                child: HomeSuggestField(
+                  suggestions: widget.suggestions,
+                ),
+                alignment: Alignment.center),
             Text(
               "Destino",
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w800),
             ),
-            Align(child: HomeSuggestField(), alignment: Alignment.center),
+            Align(
+                child: HomeSuggestField(
+                  suggestions: widget.suggestions,
+                ),
+                alignment: Alignment.center),
             MaterialButton(
               onPressed: () {},
               minWidth: size.width * 0.8,

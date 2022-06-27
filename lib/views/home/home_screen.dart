@@ -13,6 +13,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  List<String> suggestions = [];
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -25,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Stack(
                 children: [
                   HomeAppBar(),
-                  HomeSearchCity(),
+                  HomeSearchCity(suggestions: suggestions),
                 ],
               ),
             ),
