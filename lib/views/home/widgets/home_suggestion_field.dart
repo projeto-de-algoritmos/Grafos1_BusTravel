@@ -15,6 +15,7 @@ class HomeSuggestField extends StatefulWidget {
 }
 
 class _HomeSuggestFieldState extends State<HomeSuggestField> {
+  final _controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -37,9 +38,11 @@ class _HomeSuggestFieldState extends State<HomeSuggestField> {
         },
         textFieldConfiguration: TextFieldConfiguration(
           decoration: InputDecoration(
-              hintText: "Salvador - BA",
-              hintStyle: TextStyle(color: Colors.grey.withOpacity(0.4)),
-              border: InputBorder.none),
+            hintText: "Salvador - BA",
+            hintStyle: TextStyle(color: Colors.grey.withOpacity(0.4)),
+            border: InputBorder.none,
+          ),
+          controller: _controller,
         ),
         noItemsFoundBuilder: (context) => SizedBox(
           height: 60,
@@ -50,7 +53,9 @@ class _HomeSuggestFieldState extends State<HomeSuggestField> {
             ),
           ),
         ),
-        onSuggestionSelected: (value) {},
+        onSuggestionSelected: (value) {
+          _controller.text = value == null ? "" : value.toString();
+        },
         itemBuilder: (context, suggestion) {
           return ListTile(
             title: Text(suggestion.toString()),
