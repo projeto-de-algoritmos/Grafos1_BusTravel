@@ -1,7 +1,8 @@
+import 'dart:collection';
+
 import 'package:grafos1_bus/common.dart';
 import 'package:grafos1_bus/model/city.dart';
 import 'package:grafos1_bus/model/path.dart';
-import 'dart:collection';
 
 class Grafo {
   Map grafo = {};
@@ -34,12 +35,11 @@ class Grafo {
     }
   }
 
-  HashMap<String, num>? bellmanFord(Grafo graph, String source) {
+  HashMap<String, num>? bellmanFord(String source) {
     var distances = HashMap<String, num>();
     distances[source] = 0;
-
-    var edges = graph.edges;
-    var counter = graph.numberOfVertices - 1;
+    var edges = grafo[source];
+    var counter = grafo.length - 1;
 
     bool shouldUpdate(String u, String v, num w) {
       if (!distances.containsKey(u)) return false;
