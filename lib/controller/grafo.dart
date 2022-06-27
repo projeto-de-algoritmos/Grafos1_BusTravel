@@ -11,13 +11,13 @@ class Grafo {
     }
   }
 
-  static void buildGraph() {
+  void buildGraph() {
     for (var element in Global.data["data"]) {
       var city = City(
           id: element["id"],
           name: element["name"],
           initials: element["initials"]);
-      Global.grafo.addVerticeToGraph(city);
+      addVerticeToGraph(city);
     }
 
     for (var element in Global.data["data"]) {
@@ -28,8 +28,54 @@ class Grafo {
             to: trecho["to"],
             duration: trecho["duration"],
             price: trecho["price"]);
-        Global.grafo.grafo[element["name"]].add(path);
+        grafo[element["name"]].add(path);
       }
     }
+  }
+
+  List<Path> returnAllEdges() {
+    List<Path> allEdges = [];
+
+    grafo.forEach((key, value) {
+      value.forEach((element) {
+        allEdges.add(element);
+      });
+    });
+
+    return allEdges;
+  }
+
+  List<Path> bellmanFord(String source, String destination, bool isDuration) {
+    Map<String, double> distance = {};
+    Map<String, List<Path>> trajetos = {};
+
+    distance[source] = 0.0;
+    trajetos[source] = [];
+
+    int counter = grafo.length - 1;
+
+    bool shouldUpdate(String from, String to, var value) {
+      if (!distance.containsKey(from)) return false;
+      double pesoFrom = distance[from]!;
+      double pesoTo = distance[to] ?? (pesoFrom) + value;
+
+      return pesoFrom + value <= pesoTo;
+    }
+
+    for (Path edge in returnAllEdges()) {
+      String from = edge.from;
+      String to = edge.to;
+      var peso = isDuration ? edge.duration : edge.price;
+
+      if (shouldUpdate(from, to, peso)) {
+        distance[to] = distance[from]! + peso;
+        if (trajetos[to] == null) trajetos[to] = [];
+        trajetos[to]!.addAll(trajetos[from]!);
+        trajetos[to]!.add(edge);
+      }
+    }
+    counter--;
+
+    return trajetos[destination]!;
   }
 }
