@@ -24,12 +24,18 @@ class _HomeSearchCityState extends State<HomeSearchCity> {
         width: size.width * 0.8,
         padding: EdgeInsets.all(15),
         decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: const BorderRadius.horizontal(
-            left: Radius.circular(25),
-            right: Radius.circular(25),
-          ),
-        ),
+            color: Colors.white,
+            borderRadius: const BorderRadius.horizontal(
+              left: Radius.circular(25),
+              right: Radius.circular(25),
+            ),
+            boxShadow: [
+              BoxShadow(
+                  offset: Offset(0, 4),
+                  blurRadius: 4,
+                  spreadRadius: 0,
+                  color: Colors.black.withOpacity(0.2))
+            ]),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

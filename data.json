@@ -104,6 +104,42 @@
                     "price": 250.0
                 }
             ]
+        },
+        {
+            "id": 3,
+            "name": "São Paulo - SP",
+            "initials": "SP",
+            "paths": []
+        },
+        {
+            "id": 4,
+            "name": "Belo Horizonte - MG",
+            "initials": "MG",
+            "paths": []
+        },
+        {
+            "id": 5,
+            "name": "Recife - PE",
+            "initials": "PE",
+            "paths": []
+        },
+        {
+            "id": 6,
+            "name": "Curitiba - PR",
+            "initials": "PR",
+            "paths": []
+        },
+        {
+            "id": 7,
+            "name": "Florianópolis - SC",
+            "initials": "SC",
+            "paths": []
+        },
+        {
+            "id": 8,
+            "name": "Cuiabá - MT",
+            "initials": "MT",
+            "paths": []
         }
     ]
 }
