@@ -3,8 +3,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:grafos1_bus/common.dart';
-import 'package:grafos1_bus/model/city.dart';
-import 'package:grafos1_bus/model/path.dart';
 
 class HomeService {
   static Future<dynamic> getData() async {

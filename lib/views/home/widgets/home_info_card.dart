@@ -8,7 +8,8 @@ class HomeInfoCard extends StatelessWidget {
       required this.city1Name,
       required this.city2,
       required this.city2Name,
-      required this.info})
+      required this.info,
+      required this.path})
       : super(key: key);
 
   final String title;
@@ -17,6 +18,7 @@ class HomeInfoCard extends StatelessWidget {
   final String city2;
   final String city2Name;
   final String info;
+  final dynamic path;
 
   @override
   Widget build(BuildContext context) {
@@ -54,57 +56,61 @@ class HomeInfoCard extends StatelessWidget {
             ),
             child: MaterialButton(
               onPressed: () {},
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        children: [
-                          Text(
-                            city1,
-                            style: TextStyle(
-                                fontSize: 20,
-                                color: Color(0XFF2F46F5).withOpacity(0.75)),
-                          ),
-                          Text(
-                            city1Name,
-                            style: TextStyle(fontSize: 8),
-                          ),
-                        ],
-                      ),
-                      Icon(
-                        Icons.bus_alert,
-                        color: Color(0XFF2F46F5).withOpacity(0.75),
-                      ),
-                      Column(
-                        children: [
-                          Text(
-                            city2,
-                            style: TextStyle(
-                                fontSize: 20,
-                                color: Color(0XFF2F46F5).withOpacity(0.75)),
-                          ),
-                          Text(
-                            city2Name,
-                            style: TextStyle(fontSize: 8),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  Text(
-                    info,
-                    style: TextStyle(fontSize: 10),
-                  )
-                ],
-              ),
+              child: path != null
+                  ? Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Column(
+                              children: [
+                                Text(
+                                  city1,
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      color:
+                                          Color(0XFF2F46F5).withOpacity(0.75)),
+                                ),
+                                Text(
+                                  city1Name,
+                                  style: TextStyle(fontSize: 8),
+                                ),
+                              ],
+                            ),
+                            Icon(
+                              Icons.bus_alert,
+                              color: Color(0XFF2F46F5).withOpacity(0.75),
+                            ),
+                            Column(
+                              children: [
+                                Text(
+                                  city2,
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      color:
+                                          Color(0XFF2F46F5).withOpacity(0.75)),
+                                ),
+                                Text(
+                                  city2Name,
+                                  style: TextStyle(fontSize: 8),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        Text(
+                          info,
+                          style: TextStyle(fontSize: 10),
+                        )
+                      ],
+                    )
+                  : Text("Não há trajeto para a sua pesquisa!"),
             ),
-          )
+          ),
         ],
       ),
     );

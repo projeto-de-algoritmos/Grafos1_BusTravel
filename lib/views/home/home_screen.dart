@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:grafos1_bus/common.dart';
 import 'package:grafos1_bus/views/home/widgets/home_app_bar.dart';
 import 'package:grafos1_bus/views/home/widgets/home_info_card.dart';
 import 'package:grafos1_bus/views/home/widgets/home_search_city.dart';
@@ -38,6 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
               city2: "SSA",
               city2Name: "Salvador",
               info: "Tempo total: 12 horas",
+              path: Global.shortestPath,
             ),
             HomeInfoCard(
               title: "Sua viagem mais barata:",
@@ -46,6 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
               city2: "SSA",
               city2Name: "Salvador",
               info: "Preço: R\$ 900",
+              path: Global.cheapestPath,
             ),
           ],
         ),
