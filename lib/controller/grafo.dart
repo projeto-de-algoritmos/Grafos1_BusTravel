@@ -1,6 +1,7 @@
 import 'package:grafos1_bus/common.dart';
 import 'package:grafos1_bus/model/city.dart';
 import 'package:grafos1_bus/model/path.dart';
+import 'dart:collection';
 
 class Grafo {
   Map grafo = {};
@@ -31,5 +32,45 @@ class Grafo {
         Global.grafo.grafo[element["name"]].add(path);
       }
     }
+  }
+
+  HashMap<String, num>? bellmanFord(Grafo graph, String source) {
+    var distances = HashMap<String, num>();
+    distances[source] = 0;
+
+    var edges = graph.edges;
+    var counter = graph.numberOfVertices - 1;
+
+    bool shouldUpdate(String u, String v, num w) {
+      if (!distances.containsKey(u)) return false;
+      var uValue = distances[u]!;
+      var vValue = distances[v] ?? (uValue + w + 1);
+
+      return uValue + w < vValue;
+    }
+
+    while (counter > 0) {
+      for (var edge in edges) {
+        var u = edge[0];
+        var v = edge[1];
+        var w = edge[2];
+        if (shouldUpdate(u, v, w)) {
+          distances[v] = distances[u]! + w;
+        }
+      }
+
+      counter--;
+    }
+
+    for (var edge in edges) {
+      var u = edge[0];
+      var v = edge[1];
+      var w = edge[2];
+      if (shouldUpdate(u, v, w)) {
+        return null;
+      }
+    }
+
+    return distances;
   }
 }
