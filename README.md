@@ -18,10 +18,10 @@ Adicione 3 ou mais screenshots do projeto em funcionamento.
 ## Instalação 
 **Linguagem**: Dart<br>
 **Framework**: Flutter<br>
-Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
+É necessário que o framework flutter esteja devidamente instalado, pode ser verificado se tudo está correcto com o comando flutter doctor --v. Além disso é necessário um emulador ou telefone para rodar a aplicação por meio do comando "flutter run".
 
 ## Uso 
-Digite flutter run para rodar em um emulador ou no próprio telefone e utilize a interface para obter as rotas desejadas.
+Digite "flutter run" para rodar em um emulador ou no próprio telefone e utilize a interface para obter as rotas desejadas.
 
 
 
