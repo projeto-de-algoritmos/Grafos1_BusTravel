@@ -1,6 +1,7 @@
 import 'dart:collection';
 
 import 'package:grafos1_bus/common.dart';
+import 'package:grafos1_bus/controller/home_controller.dart';
 import 'package:grafos1_bus/model/city.dart';
 import 'package:grafos1_bus/model/path.dart';
 import 'package:grafos1_bus/model/result.dart';
@@ -76,26 +77,9 @@ class Grafo {
       }
     }
 
-    createResultObject(source, destination, isDuration, distance);
+    HomeController.createResultObject(
+        source, destination, isDuration, distance[destination]);
 
     return trajetos[destination]!;
-  }
-
-  void createResultObject(String source, String destination, bool isDuration,
-      Map<String, double> distance) {
-    if (isDuration) {
-      var sourceRes = source.split("-");
-      var destinationRes = destination.split("-");
-      Global.travelResult = TravelResult(
-        shortestTravel: distance[destination]!.toInt(),
-        from: sourceRes[0].trim(),
-        fromSymbol: sourceRes[1].trim(),
-        to: destinationRes[0].trim(),
-        toSymbol: destinationRes[1].trim(),
-        cheapestTravel: null,
-      );
-    } else {
-      Global.travelResult?.cheapestTravel = distance[destination];
-    }
   }
 }

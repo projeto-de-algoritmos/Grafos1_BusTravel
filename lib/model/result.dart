@@ -3,8 +3,8 @@ class TravelResult {
   String fromSymbol;
   String to;
   String toSymbol;
-  double? cheapestTravel;
-  int? shortestTravel;
+  String? cheapestTravel;
+  String? shortestTravel;
 
   TravelResult({
     required this.from,

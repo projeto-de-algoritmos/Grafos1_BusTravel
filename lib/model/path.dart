@@ -8,7 +8,7 @@ class Path {
   int id;
   String from;
   String to;
-  int duration;
+  double duration;
   double price;
 
   Path(

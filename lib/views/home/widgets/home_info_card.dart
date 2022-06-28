@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grafos1_bus/model/path.dart';
 
 class HomeInfoCard extends StatelessWidget {
   const HomeInfoCard(
@@ -18,7 +19,7 @@ class HomeInfoCard extends StatelessWidget {
   final String city2;
   final String city2Name;
   final String info;
-  final dynamic path;
+  final List<Path> path;
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +57,7 @@ class HomeInfoCard extends StatelessWidget {
             ),
             child: MaterialButton(
               onPressed: () {},
-              child: path != null
+              child: path.isNotEmpty
                   ? Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -66,45 +67,54 @@ class HomeInfoCard extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Column(
-                              children: [
-                                Text(
-                                  city1,
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      color:
-                                          Color(0XFF2F46F5).withOpacity(0.75)),
-                                ),
-                                Text(
-                                  city1Name,
-                                  style: TextStyle(fontSize: 8),
-                                ),
-                              ],
+                            Padding(
+                              padding: const EdgeInsets.only(top: 10),
+                              child: Column(
+                                children: [
+                                  Text(
+                                    city1,
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        color: Color(0XFF2F46F5)
+                                            .withOpacity(0.75)),
+                                  ),
+                                  Text(
+                                    city1Name,
+                                    style: TextStyle(fontSize: 8),
+                                  ),
+                                ],
+                              ),
                             ),
                             Icon(
                               Icons.bus_alert,
                               color: Color(0XFF2F46F5).withOpacity(0.75),
                             ),
-                            Column(
-                              children: [
-                                Text(
-                                  city2,
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      color:
-                                          Color(0XFF2F46F5).withOpacity(0.75)),
-                                ),
-                                Text(
-                                  city2Name,
-                                  style: TextStyle(fontSize: 8),
-                                ),
-                              ],
+                            Padding(
+                              padding: const EdgeInsets.only(top: 10),
+                              child: Column(
+                                children: [
+                                  Text(
+                                    city2,
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        color: Color(0XFF2F46F5)
+                                            .withOpacity(0.75)),
+                                  ),
+                                  Text(
+                                    city2Name,
+                                    style: TextStyle(fontSize: 8),
+                                  ),
+                                ],
+                              ),
                             ),
                           ],
                         ),
-                        Text(
-                          info,
-                          style: TextStyle(fontSize: 10),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 15),
+                          child: Text(
+                            info,
+                            style: TextStyle(fontSize: 10),
+                          ),
                         )
                       ],
                     )

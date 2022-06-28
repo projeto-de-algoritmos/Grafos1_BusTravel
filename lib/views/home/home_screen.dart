@@ -45,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   city2Name: Global.travelResult.to,
                   info:
                       "Tempo total: ${Global.travelResult.shortestTravel} horas",
-                  path: Global.shortestPath,
+                  path: Global.shortestPath.value,
                 );
               },
             ),
@@ -58,8 +58,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   city1Name: Global.travelResult.from,
                   city2: Global.travelResult.toSymbol,
                   city2Name: Global.travelResult.to,
-                  info: "Preço: R\$ ${Global.travelResult.cheapestTravel}",
-                  path: Global.cheapestPath,
+                  info: "Preço: ${Global.travelResult.cheapestTravel}",
+                  path: Global.cheapestPath.value,
                 );
               },
             ),

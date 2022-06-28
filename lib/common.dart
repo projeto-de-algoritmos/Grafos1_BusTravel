@@ -15,6 +15,6 @@ class Global {
       to: "",
       fromSymbol: "",
       cheapestTravel: null,
-      shortestTravel: 60,
+      shortestTravel: "60",
       toSymbol: "");
 }
