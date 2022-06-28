@@ -14,6 +14,8 @@ O projeto tem como objetivo analisar as possíveis rotas entre duas cidades da c
 
 ## Screenshots
 <img src="/prints/print2.jpg" alt="drawing" width="200"/>
+<img src="/prints/print1.jpg" alt="drawing" width="200"/>
+<img src="/prints/print3.jpg" alt="drawing" width="200"/>
 
 ## Instalação 
 **Linguagem**: Dart<br>
