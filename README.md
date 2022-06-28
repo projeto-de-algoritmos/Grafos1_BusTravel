@@ -13,9 +13,7 @@
 O projeto tem como objetivo analisar as possíveis rotas entre duas cidades da companhia de ônibus e trazer por meio dele o percurso mais rápido e mais barato, isso é feito por meio do algoritmo de Bellman-Ford que recebe o grafo e seus nós e por meio disso realiza a análise de cada caminho existente entre os ponto de partida e o ponto final.
 
 ## Screenshots
-![Tela Principal](prints/print2.jpg)
-![Tela Principal com busca](prints/print1.jpg)
-![Dados de Viagem](prints/print3.jpg)
+<img src="/prints/print2.jpg" alt="drawing" width="200"/>
 
 ## Instalação 
 **Linguagem**: Dart<br>
