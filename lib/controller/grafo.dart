@@ -71,7 +71,7 @@ class Grafo {
 
       if (shouldUpdate(from, to, peso)) {
         distance[to] = distance[from]! + peso;
-        if (trajetos[to] == null) trajetos[to] = [];
+        trajetos[to] = [];
         trajetos[to]!.addAll(trajetos[from]!);
         trajetos[to]!.add(edge);
       }

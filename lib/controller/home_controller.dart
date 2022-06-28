@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:grafos1_bus/common.dart';
 import 'package:grafos1_bus/model/result.dart';
+import 'package:grafos1_bus/model/path.dart';
 import 'package:intl/intl.dart';
 
 class HomeController {
@@ -39,5 +40,24 @@ class HomeController {
     } else {
       Global.travelResult.cheapestTravel = formatValue(value!);
     }
+  }
+
+  static buildWidgetsTravel(List<Path> path, bool isDuration) {
+    List<Widget> widgets = [];
+    String value = "";
+    path.forEach((element) {
+      if (isDuration)
+        value = (element.duration / 60).toStringAsFixed(1) + " horas";
+      else
+        value = formatValue(element.price);
+      widgets.add(
+        Text(
+          "${element.from} até ${element.to} ($value)",
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+      );
+    });
+
+    return widgets;
   }
 }

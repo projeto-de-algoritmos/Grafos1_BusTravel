@@ -741,11 +741,39 @@
                     "price": 220.0
                 },
                 {
-                    "id": 99,
+                    "id": 102,
                     "from": "Cuiabá - MT",
-                    "to": "São Paulo - SP",
-                    "duration": 780.0,
-                    "price": 280.0
+                    "to": "Palmas - TO",
+                    "duration": 560.0,
+                    "price": 420.0
+                }
+            ]
+        },
+        {
+            "id": 10,
+            "name": "Manaus - AM",
+            "initials": "MAN",
+            "paths": [
+                {
+                    "id": 100,
+                    "from": "Manaus - AM",
+                    "to": "Rio Branco - AC",
+                    "duration": 660.0,
+                    "price": 540.0
+                }
+            ]
+        },
+        {
+            "id": 11,
+            "name": "Palmas - TO",
+            "initials": "PAL",
+            "paths": [
+                {
+                    "id": 101,
+                    "from": "Palmas - TO",
+                    "to": "Manaus - AM",
+                    "duration": 820.0,
+                    "price": 380.0
                 }
             ]
         }

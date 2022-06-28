@@ -46,6 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   info:
                       "Tempo total: ${Global.travelResult.shortestTravel} horas",
                   path: Global.shortestPath.value,
+                  isDuration: true,
                 );
               },
             ),
@@ -60,6 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   city2Name: Global.travelResult.to,
                   info: "Preço: ${Global.travelResult.cheapestTravel}",
                   path: Global.cheapestPath.value,
+                  isDuration: false,
                 );
               },
             ),

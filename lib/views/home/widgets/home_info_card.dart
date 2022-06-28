@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:grafos1_bus/model/path.dart';
+import 'package:grafos1_bus/views/travel/bottomSheet.dart';
 
 class HomeInfoCard extends StatelessWidget {
   const HomeInfoCard(
@@ -10,7 +11,8 @@ class HomeInfoCard extends StatelessWidget {
       required this.city2,
       required this.city2Name,
       required this.info,
-      required this.path})
+      required this.path,
+      required this.isDuration})
       : super(key: key);
 
   final String title;
@@ -20,6 +22,7 @@ class HomeInfoCard extends StatelessWidget {
   final String city2Name;
   final String info;
   final List<Path> path;
+  final bool isDuration;
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +59,19 @@ class HomeInfoCard extends StatelessWidget {
               ],
             ),
             child: MaterialButton(
-              onPressed: () {},
+              onPressed: () {
+                showModalBottomSheet<void>(
+                  isScrollControlled: true,
+                  backgroundColor: Colors.transparent,
+                  context: context,
+                  builder: (BuildContext context) {
+                    return TravelDetails(
+                      path: path,
+                      isDuration: isDuration,
+                    );
+                  },
+                );
+              },
               child: path.isNotEmpty
                   ? Column(
                       mainAxisAlignment: MainAxisAlignment.center,
